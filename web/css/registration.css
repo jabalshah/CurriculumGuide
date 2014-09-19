@@ -1,0 +1,321 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 19, 2014, 2:02:13 PM
+    Author     : Jabal
+*/
+
+body {
+    color: #000000;
+    font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.body{
+    clear: both; 
+    margin: 0 auto; 
+    width: 70%;
+}
+
+.mainHeader{
+    width: 100%;
+    height: 100px !important;
+    margin: 2% 0 0 0;
+}
+
+a {
+    outline: 0;
+}
+
+a img {
+    border: 0px; 
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: #876ed7;
+    padding: 0 1px;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background-color: #104ba9;
+    color: #c2cbda;
+    text-decoration: none;
+}
+
+.header h1{
+    float: left;
+    color: #28417e;
+    margin: 5px;
+}
+.subHeader{
+    color: #28417e;
+    float: right;
+}
+
+.mainHeader nav {
+    clear: both;
+    background: #284a7e;
+    font-size: 1.143em;
+    height: 40px;
+    line-height: 30px;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    border-radius: 5px;
+    /*-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;*/
+}
+
+.mainHeader nav ul {
+    list-style: none; 
+    margin: 0 auto;
+}
+
+.mainHeader nav ul li {
+    float: left; 
+    display: inline; 
+}
+
+.mainHeader nav a:link, .mainHeader nav a:visited {
+    color: #c2cbda;
+    display: inline-block;
+    height: 30px;
+    padding: 5px 23px;
+    text-decoration: none;
+}
+.mainHeader nav a:hover, .mainHeader nav a:active,
+.mainHeader nav .active a:link, .mainHeader nav .active a:visited {
+    background: #104ba9;
+    color: #c2cbda;
+    text-shadow: none !important;
+}
+
+.mainHeader nav li a {
+    border-radius: 5px;
+    /*-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;*/
+}
+
+#registrationForm{
+    clear: both;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 5px;
+}
+
+#leftRegistration{
+  width: 47%;
+  float: left;
+}
+
+#rightRegistration{
+  width: 47%;
+  float: right;
+}
+:-moz-placeholder{
+    color: blue;
+}
+
+::-webkit-input-placeholder{
+    color: blue;
+}
+
+*:focus{
+	outline: none;
+}
+
+.form1 h2, .form1 label{
+	font-family:Georgia, Times, "Times New Roman", serif;
+}
+
+.form_hint, .required_notification{
+	font-size: 11px;
+}
+
+.form1 ul{
+	width:65%;
+	clear: both;
+	list-style-type:none;
+	list-style-position:outside;
+	margin:0px;
+	padding:0px;
+}
+
+.form1 li{
+	padding:12px; 
+	border-bottom:1px solid #eee;
+	position:relative;
+}
+
+/*.form1 li:last-child{
+	border-bottom:1px solid #777;
+}*/
+
+.form1 h2{
+	margin:0;
+	display: inline;
+}
+
+.required_notification{
+	color:#d45252;
+	display:inline;
+	float:right;
+}
+
+.message{
+    color:#d45252;
+    font-style: italic;
+    text-align: left;
+}
+
+.form1 label{
+	width:180px;
+	margin-top: 3px;
+	display:inline-block;
+	float:left;
+	padding:3px;
+}
+
+.form1 input{
+	height:20px; 
+	width:220px; 
+	padding:5px 8px;
+}
+
+.radbtn label{
+	width:180px;
+	margin-top: 3px;
+	padding: 3px;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
+.radbtn input{
+	height:20px;
+	width: 20px;
+	display: inline;
+}
+.form1 textarea{
+	padding:8px; width:300px;
+}
+
+.form1 button{
+	margin-left:186px;
+}
+
+.form1 input, .form1 textarea{ 
+	border:1px solid #aaa;
+	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+	border-radius:2px;
+	-moz-transition: padding .25s; 
+	-webkit-transition: padding .25s; 
+	-o-transition: padding .25s;
+	transition: padding .25s;
+	padding-right: 30px;
+}
+
+input:required, textarea:required{
+	background: #fff url(../Images/redAsterisk.jpg) no-repeat 98% center;
+}
+
+.form1 input:focus:invalid, .form1 textarea:focus:invalid{
+	background: #fff url(../Images/invalid.png) no-repeat 98% center;
+	box-shadow: 0 0 5px #d45252;
+	border-color: #b03535
+}
+
+.form1 input:required:valid, .form1 textarea:required:valid{
+    background: #fff url(../Images/valid.jpg) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+.form1 input:focus, .form1 textarea:focus{
+	background: #fff; 
+	border:1px solid #555; 
+	box-shadow: 0 0 3px #aaa;
+	padding-right: 70px;
+}
+
+button.submit{
+	background-color: #284a7e;
+	border: 1px solid #509111;
+	border-bottom: 1px solid #5b992b;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	padding: 6px 20px;
+	text-align: center;
+}
+
+button.submit.hover{
+	opacity: .85;
+	cursor: pointer;
+}
+
+.form_hint{
+	background: #d45252;
+	border-radius: 3px 3px 3px 3px;
+	color: white;
+	margin-left:8px;
+	padding: 1px 6px;
+	z-index: 999; /* hints stay above all other elements */
+	position: absolute; /* allows proper formatting if hint is two lines */
+	display: none;
+}
+
+.form_hint::before{
+	content: "\25C0"; /* left point triangle in escaped unicode */
+	color:#d45252;
+	position: absolute;
+	top:1px;
+	left:-6px;
+}
+
+.form1 input:focus + .form_hint{
+	display: inline;
+}
+
+/* change form hint color when valid */
+.form1 input:required:valid + .form_hint{
+	background: #28921f;
+}
+
+/* change form hint arrow color when valid */
+.form1 input:required:valid + .form_hint::before{
+	color:#28921f;
+}
+
+.popupInfo{
+	display: none;
+	padding: 15px;
+	background: #000;
+	border: 1px solid #1852fd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -100px;
+	z-index: 99999;
+	box-shadow: 0px 0px 4px #1852fd;
+	border-radius: 5px;
+}
+
+#mask{
+	display: none;
+	background: #fff;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 88888;
+	width: 100%;
+	height: 100%;
+	opacity: 0.95;
+}
