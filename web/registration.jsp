@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="css/registration.css" media="screen">
     </head>
     <body>
+        <h2>Registration Form</h2>
         <div id="registrationForm">
             <form class="form1" id="form1" action="addToRegistration" method="post">
                 <p class="message">${message}</p>
@@ -50,4 +51,5 @@
             </form>
         </div>
     </body>
+    
 </html>
