@@ -1,18 +1,5 @@
-<%-- 
-    Document   : registration
-    Created on : Sep 19, 2014, 1:57:57 PM
-    Author     : Jabal
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Curriculum Guide - Registration </title>
-        <link rel="stylesheet" type="text/css" href="css/registration.css" media="screen">
-    </head>
-    <body>
+<%@ include file="includes/header.jsp" %>
+                <main class="content">
         <h2>Registration Form</h2>
         <div id="registrationForm">
             <form class="form1" id="form1" action="addToRegistration" method="post">
@@ -50,6 +37,6 @@
                 </ul>
             </form>
         </div>
-    </body>
-    
-</html>
+                                        </main>
+<%@ include file="includes/aside.jsp" %>
+<%@ include file="includes/footer.jsp" %>
