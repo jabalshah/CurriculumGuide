@@ -20,8 +20,8 @@ public class UserLoginDB {
 
         //Preparing query that will insert record into customer table
         String query = 
-                "INSERT INTO userlogininfo (Username, Userpassword, Questioncode, Answer) " +
-                "VALUES (?, ?, ?, ?)";
+                "INSERT INTO userlogininfo (Username, Userpassword, Questioncode, Answer, confirmation_code) " +
+                "VALUES (?, ?, ?, ?, ?)";
         try
         {        
             ps = connection.prepareStatement(query);
@@ -29,6 +29,7 @@ public class UserLoginDB {
             ps.setString(2, userLogin.getPassword());
             ps.setString(3, userLogin.getSecurityQuestion());
             ps.setString(4, userLogin.getAnswer());
+            ps.setInt(5, userLogin.getConfirmation_code());
             return ps.executeUpdate();
         }
         catch(SQLException e)

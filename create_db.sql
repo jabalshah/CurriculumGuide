@@ -10,3 +10,7 @@ CREATE TABLE `curriculum_guide`.`userlogininfo` (
   `questioncode` VARCHAR(4) NOT NULL,
   `answer` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`username`));
+
+ALTER TABLE `curriculum_guide`.`userlogininfo` 
+ADD COLUMN `confirmation_code` INT NOT NULL AFTER `answer`,
+ADD COLUMN `confirmation_status` VARCHAR(5) NOT NULL DEFAULT 'false' AFTER `confirmation_code`;

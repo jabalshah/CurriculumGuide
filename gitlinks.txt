@@ -1,0 +1,5 @@
+https://github.com/jabalshah/CurriculumGuide.git
+
+git@github.com:jabalshah/CurriculumGuide.git
+
+https://jabalshah@bitbucket.org/jabalshah/curriculumguide.git
