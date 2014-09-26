@@ -18,6 +18,25 @@ public class UserLogin implements Serializable{
     private String password;
     private String securityQuestion;
     private String answer;
+    private int confirmation_code;
+    private String confirmation_status;
+
+    public int getConfirmation_code() {
+        return confirmation_code;
+    }
+
+    public void setConfirmation_code(int confirmation_code) {
+        this.confirmation_code = confirmation_code;
+    }
+
+    public String getConfirmation_status() {
+        return confirmation_status;
+    }
+
+    public void setConfirmation_status(String confirmation_status) {
+        this.confirmation_status = confirmation_status;
+    }
+    
     
     public String getUserName() {
         return userName;
