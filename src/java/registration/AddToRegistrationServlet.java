@@ -75,7 +75,8 @@ public class AddToRegistrationServlet extends HttpServlet {
             String subject = "Thank you for registration @Curriculum Guide";
             StringBuilder sb = new StringBuilder();
             sb.append("<html>\n");
-            sb.append("<bod");
+            sb.append("<body>");
+            sb.append("</body></html>");
             String body = "";
             boolean isBodyHTML = true;
 
