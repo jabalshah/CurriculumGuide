@@ -1,18 +1,23 @@
-<%-- 
-    Document   : index
-    Created on : Sep 19, 2014, 1:52:41 PM
-    Author     : Jabal
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <p>${message}</p>
-    </body>
-</html>
+<%@ include file="includes/header.jsp" %>
+                <main class="content">
+                    <h2>HI GUYS</h2>
+                        <ul class="gallery">
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                            <li class="gallery__item"><img src="http://www.placehold.it/300x300" alt=""></li>
+                        </ul>
+                </main>
+<%@ include file="includes/aside.jsp" %>
+<%@ include file="includes/footer.jsp" %>
