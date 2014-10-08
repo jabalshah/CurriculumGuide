@@ -5,37 +5,32 @@
   box-sizing: border-box;
 }
 
-/* line 14, ../sass/style.scss */
+/* line 20, ../sass/style.scss */
 h2 {
   padding: 1rem 0;
   text-align: center;
   color: #555;
 }
 
-/* line 20, ../sass/style.scss */
+/* line 26, ../sass/style.scss */
 ul, ol {
   margin: 0;
   padding: 0;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 30, ../sass/style.scss */
-.site-header, .site-footer {
-  background: yellow;
-}
-
-/* line 35, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 .site-header a {
   color: #555;
   text-decoration: none;
 }
 
-/* line 41, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 .logo {
   float: left;
   line-height: 2rem;
@@ -43,36 +38,44 @@ img {
   background-color: red;
 }
 
-/* line 48, ../sass/style.scss */
+/* line 54, ../sass/style.scss */
 nav {
-  float: right;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
 }
-/* line 50, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 nav li {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
   list-style: none;
   float: left;
-  margin-left: 1em;
+  margin-left: 5em;
   line-height: 2rem;
+  background-color: orange;
 }
 
-/* line 58, ../sass/style.scss */
+/* line 68, ../sass/style.scss */
 .content {
   margin-top: 5vh;
   padding-bottom: 1rem;
   background: rgba(113, 218, 210, 0.8);
 }
 
-/* line 64, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 .sidebar {
   margin-top: 5vh;
   background: rgba(250, 231, 179, 0.8);
   padding-bottom: 1rem;
 }
-/* line 69, ../sass/style.scss */
+/* line 79, ../sass/style.scss */
 .sidebar li {
   list-style: none;
 }
-/* line 71, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 .sidebar li a {
   color: #666;
   padding-left: 1rem;
@@ -80,23 +83,23 @@ nav li {
   text-decoration: none;
 }
 
-/* line 80, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 .widget {
   background: rgba(240, 150, 113, 0.8);
 }
 
-/* line 84, ../sass/style.scss */
+/* line 94, ../sass/style.scss */
 .site-footer {
   margin-top: 5vh;
 }
 
-/* line 88, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 .wrap {
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
   background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-size: 6.32911%;
+  background-size: 8.47458%;
   background-origin: content-box;
   background-clip: content-box;
   background-position: left top;
@@ -108,59 +111,77 @@ nav li {
   clear: both;
 }
 
-/* line 92, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .content {
-  width: 74.68354%;
+  width: 100%;
   float: left;
-  margin-right: 1.26582%;
+  margin-left: 0;
+  margin-right: 0;
 }
-/* line 7, ../sass/style.scss */
+@media (min-width: 47em) {
+  /* line 102, ../sass/style.scss */
+  .content {
+    width: 74.57627%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+}
+/* line 13, ../sass/style.scss */
 .content:after {
   content: " ";
   display: block;
   clear: both;
 }
 
-/* line 97, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 .sidebar {
-  width: 24.05063%;
-  float: right;
+  width: 100%;
+  float: left;
+  margin-left: 0;
   margin-right: 0;
 }
-/* line 7, ../sass/style.scss */
+/* line 13, ../sass/style.scss */
 .sidebar:after {
   content: " ";
   display: block;
   clear: both;
 }
+@media (min-width: 47em) {
+  /* line 110, ../sass/style.scss */
+  .sidebar {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0;
+  }
+}
 
-/* line 102, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 .gallery {
   width: 83.05085%;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 7, ../sass/style.scss */
+/* line 13, ../sass/style.scss */
 .gallery:after {
   content: " ";
   display: block;
   clear: both;
 }
 
-/* line 109, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 .gallery__item {
   list-style: none;
   width: 18.36735%;
   float: left;
   margin-right: 2.04082%;
 }
-/* line 112, ../sass/style.scss */
+/* line 128, ../sass/style.scss */
 .gallery__item:nth-child(5n) {
   float: right;
   margin-right: 0;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 133, ../sass/style.scss */
 .widget {
   width: 24.05063%;
   float: left;
@@ -191,7 +212,7 @@ nav li {
   clear: none;
 }
 
-/* line 122, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 #registrationForm {
   clear: both;
   margin: 0 auto;
@@ -199,7 +220,7 @@ nav li {
   border-radius: 5px;
 }
 
-/* line 129, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 .form1 ul {
   width: 65%;
   clear: both;
@@ -209,14 +230,14 @@ nav li {
   padding: 0px;
 }
 
-/* line 138, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .form1 li {
   padding: 12px;
   border-bottom: 1px solid #eee;
   position: relative;
 }
 
-/* line 144, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 .form1 label {
   width: 180px;
   margin-top: 3px;
@@ -225,14 +246,14 @@ nav li {
   padding: 3px;
 }
 
-/* line 152, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 .form1 input {
   height: 20px;
   width: 220px;
   padding: 5px 8px;
 }
 
-/* line 158, ../sass/style.scss */
+/* line 174, ../sass/style.scss */
 button.submit {
   background-color: #284a7e;
   border: 1px solid #509111;
@@ -244,7 +265,7 @@ button.submit {
   text-align: center;
 }
 
-/* line 169, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 button.submit.hover {
   opacity: .85;
   cursor: pointer;
