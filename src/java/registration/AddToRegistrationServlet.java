@@ -76,8 +76,13 @@ public class AddToRegistrationServlet extends HttpServlet {
             StringBuilder sb = new StringBuilder();
             sb.append("<html>\n");
             sb.append("<body>");
+            sb.append("<a href=\"localhost:8080\\verifyEmail?userName=");
+            sb.append(userLogin.getUserName());
+            sb.append("&confirmation_code=");
+            sb.append(userLogin.getConfirmation_code());
+            sb.append("\">Verify Email</a>");
             sb.append("</body></html>");
-            String body = "";
+            String body = sb.toString();
             boolean isBodyHTML = true;
 
             //Sends mail to customer's email address from firstlastnameemailaddress@gmail.com 

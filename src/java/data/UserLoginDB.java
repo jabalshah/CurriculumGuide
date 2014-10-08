@@ -116,4 +116,33 @@ public class UserLoginDB {
             pool.freeConnection(connection);
         }
     }
+    
+    public static int updateConfirmation(UserLogin userLogin)
+    {   
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        //Preparing query that will insert record into customer table
+        String query = 
+                "UPDATE userlogininfo SET confirmation_status = ?" +
+                "WHERE username = ?";
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, "true");
+            ps.setString(2, userLogin.getUserName());
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
 }
