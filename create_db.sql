@@ -23,3 +23,10 @@ CREATE TABLE `curriculum_guide`.`registration` (
   `grade` VARCHAR(2) NULL,
   `satisfies` VARCHAR(50) NULL,
   PRIMARY KEY (`idregistration`));
+
+ALTER TABLE `curriculum_guide`.`registration` 
+ADD COLUMN `category` VARCHAR(45) NULL AFTER `grade`;
+
+ALTER TABLE `curriculum_guide`.`registration` 
+CHANGE COLUMN `course_id` `course_id` VARCHAR(9) NOT NULL ;
+
