@@ -11,6 +11,7 @@ import data.*;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -41,6 +42,9 @@ public class LoginServlet extends HttpServlet {
         UserLogin userLogin = new UserLogin();
         HttpSession session = request.getSession();
         
+        ArrayList<Registration> registrations = new ArrayList<Registration>();
+        User user = new User();
+        
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         
@@ -68,6 +72,8 @@ public class LoginServlet extends HttpServlet {
                     loginStatusCookie.setPath("/");
                     response.addCookie(loginStatusCookie);
                     
+                    user = UserDB.selectUser(userName);
+                    registrations = RegistrationDB.selectAll(userName);
                     session.setAttribute("userLogin", userLogin);
                 } else {
                     message = "Password is incorrect for given UserName";
@@ -79,6 +85,9 @@ public class LoginServlet extends HttpServlet {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
+        session.setAttribute("registrations", registrations);
+        session.setAttribute("user", user);
         session.setAttribute("userLogin", userLogin);
         request.setAttribute("message", message);
         session.setAttribute("login", "true");
