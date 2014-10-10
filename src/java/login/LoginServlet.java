@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         UserLogin userLogin = new UserLogin();
         HttpSession session = request.getSession();
-        
         ArrayList<Registration> registrations = new ArrayList<Registration>();
         User user = new User();
         

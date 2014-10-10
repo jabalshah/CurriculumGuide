@@ -24,9 +24,9 @@
                     <ul>
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="registration.jsp">Registration</a></li>
-                        <li><a href="#">item03</a></li>
-                        <li><a href="#">item04</a></li>
-                        <li><a href="#">item05</a></li>
+                        <li><a href="userProfile.jsp">User Profile</a></li>
+                        <li><a href="courseoverview.jsp">Course Overview</a></li>
+                        <li><a href="#">Login/Logoff</a></li>
                     </ul>
                 </nav>
             </div>
