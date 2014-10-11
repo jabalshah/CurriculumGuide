@@ -74,6 +74,7 @@ public class LoginServlet extends HttpServlet {
                     user = UserDB.selectUser(userName);
                     registrations = RegistrationDB.selectAll(userName);
                     session.setAttribute("userLogin", userLogin);
+                    session.setAttribute("userName", userName);
                 } else {
                     message = "Password is incorrect for given UserName";
                     url = "/login.jsp";
@@ -84,7 +85,6 @@ public class LoginServlet extends HttpServlet {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
         session.setAttribute("registrations", registrations);
         session.setAttribute("user", user);
         session.setAttribute("userLogin", userLogin);
