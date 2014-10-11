@@ -60,6 +60,7 @@
                 </c:otherwise>
             </c:choose>
         </c:forEach>
+        </table>
     </main>
 <%@ include file="includes/aside.jsp" %>
 <%@ include file="includes/footer.jsp" %>

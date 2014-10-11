@@ -3,8 +3,6 @@
     Created on : Oct 11, 2014, 9:13:40 AM
     Author     : Jabal
 --%>
-
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="data.RegistrationDB,business.Registration,java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
@@ -57,6 +55,7 @@
             }
         }
     %>
+    </table>
     </main>
 <%@ include file="includes/aside.jsp" %>
 <%@ include file="includes/footer.jsp" %>
