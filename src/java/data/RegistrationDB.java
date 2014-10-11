@@ -26,8 +26,7 @@ public class RegistrationDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM registration Where username = ? "
-                + "ORDER BY semester";
+        String query = "SELECT * FROM registration Where username = ? ORDER BY semester";
         
         try{
             ps = connection.prepareStatement(query);
@@ -65,8 +64,7 @@ public class RegistrationDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM registration Where username = ? AND "
-                + "grade IS NULL";
+        String query = "SELECT * FROM registration Where username = ? AND grade IS NULL";
         
         try{
             ps = connection.prepareStatement(query);
@@ -104,8 +102,7 @@ public class RegistrationDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM registration WHERE username = ? AND "
-                + "category = ? ORDER BY semester";
+        String query = "SELECT * FROM registration WHERE username = ? AND category = ? ORDER BY semester";
         
         try{
             ps = connection.prepareStatement(query);
@@ -144,8 +141,7 @@ public class RegistrationDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "SELECT * FROM registration Where username = ? AND grade "
-                + "IS NOT NULL ORDER BY semester";
+        String query = "SELECT * FROM registration Where username = ? AND grade IS NOT NULL ORDER BY semester";
         
         try{
             ps = connection.prepareStatement(query);

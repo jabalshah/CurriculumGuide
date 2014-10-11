@@ -1,22 +1,21 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
                 <main class="content">
-                    <p>Luis Echegaray</p>
-                    <p>June 17 1985</p>
-                    <p>Senior</p>
-                    <p> Computer Science</p>
-                    <p>Path: Game Development</p>
-                    <p>Advisor: Julie</p>
-                    <p> Estimated Graduation: May 2015</p>
-                    
-                    <p> 50 % Done</p>
+                    <p>${user.firstname} ${user.lastname}</p>
+                    <p>Date of Birth: ${user.dob}</p>
+                    <p>Level: ${user.level}</p>
+                    <p>Major: ${user.major}</p>
+                    <p>Focus Area: ${user.concentration}</p>
+                    <p>Advisor: ${user.advisor}</p>
+                    <p>Graduation Date: ${user.graduationdate}</p>
                     
                     <p>Current Classes</p>
                     <ul>
-                        <li>4155</li>
-                        <li>4102</li>
-                        <li>2101</li>
-                        <li>3200</li>
-                        <li>3166</li>
+                        <c:forEach var="course" items="${registrations}">
+                            <c:if test="${course.grade == NULL}">
+                                <li>${course.course_id}</li>
+                            </c:if>
+                        </c:forEach>
                     </ul>
                     
                     <img alt ="cat pickture" src="http://placekitten.com/200/400">

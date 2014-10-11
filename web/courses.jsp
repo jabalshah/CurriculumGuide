@@ -1,12 +1,19 @@
 <%@ include file="includes/header.jsp" %>
                 <main class="content">
-                    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-                    <c:forEach var="student" items="${registrations.item}">
-                        
-                        
-                    </c:forEach>
-                    
-
+                    <table>
+                        <tr>
+                        <th>Course Id</th>
+                        <th>Semester</th>
+                        <th>Grade</th>
+                        <th>Category</th>
+                        </tr>
+                        <tr>
+                            <td>PHIL1106</td>
+                            <td>201480</td>
+                            <td>A</td>
+                            <td>Category</td>
+                        </tr>
+                    </table>
 
                 </main>
 <%@ include file="includes/aside.jsp" %>

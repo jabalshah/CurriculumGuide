@@ -22,16 +22,15 @@ public class UserDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
+        User user = new User();
         
         //Setting up query that will retrieve the records where username matches
-        String query = "SELECT * FROM user" +
-                       "WHERE username = ?";
+        String query = "SELECT * FROM user WHERE username = ?";
         try
         {
             ps = connection.prepareStatement(query);
             ps.setString(1, userName);
             rs = ps.executeQuery();
-            User user = new User();
             
             //If record exist, setting up values in Customer object
             if (rs.next())
@@ -42,6 +41,7 @@ public class UserDB {
                 user.setDob(rs.getDate("dob"));
                 user.setLevel(rs.getString("level"));
                 user.setMajor(rs.getString("major"));
+                user.setAdvisor(rs.getString("advisor"));
                 user.setConcentration(rs.getString("concentration"));
                 user.setGraduationdate(rs.getDate("graduationdate"));
             }
