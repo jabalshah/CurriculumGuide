@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
                 //If password validates proceed to home screen after logging in 
                 //successfully
                 if (PasswordManager.validatePassword(password, userLogin.getPassword())) {
-                    url = "/index.jsp";
+                    url = "/userProfile.jsp";
                     Cookie userNameCookie = new Cookie("userNameCookie", userLogin.getUserName());
                     userNameCookie.setMaxAge(60 * 60 * 24);
                     userNameCookie.setPath("/");
