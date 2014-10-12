@@ -5,4 +5,5 @@
                     <h3>NEW THING GUYs</h3>
                 </main>
 <%@ include file="includes/aside.jsp" %>
+YUP
 <%@ include file="includes/footer.jsp" %>
