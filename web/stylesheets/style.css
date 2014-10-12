@@ -110,7 +110,7 @@ nav ul li a:hover {
 
 /* line 99, ../sass/style.scss */
 .sidebar {
-  opacity: 0.7;
+  opacity: .9;
   margin-top: 1vh;
   background: #b9b9b9;
   padding-bottom: 1rem;
