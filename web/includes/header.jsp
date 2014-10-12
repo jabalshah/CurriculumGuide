@@ -14,22 +14,27 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="stylesheets/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'><!-- Google Web Font -->
+        <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'><!-- Google Web Font -->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> <!-- Form Styles -->
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <header class="site-header">
             <div class="wrap">
-                <div class="logo"><a href="index.jsp">Curriculum Guide</a></div>
-                <nav>
+                <div class="logo"><a href="index.jsp">CS Curriculum Guide</a></div>
+
+            </div>
+        </header>
+                <div class="site-inner">
+            <div class="wrap">
+            <nav>
                     <ul>
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="registration.jsp">Registration</a></li>
                         <li><a href="userProfile.jsp">User Profile</a></li>
                         <li><a href="courseoverview.jsp">Course Overview</a></li>
-                        <li><a href="#">Login/Logoff</a></li>
+                        <li><a href="#">Placeholder</a></li>
+                        <li><a href="login.jsp">Login/Logoff</a></li>
                     </ul>
                 </nav>
-            </div>
-        </header>
-                <div class="site-inner">
-            <div class="wrap">

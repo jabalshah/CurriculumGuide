@@ -8,14 +8,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-        <table>
-            <tr>
-                <th>Course Id</th>
-                <th>Semester</th>
-                <th>Year</th>
-                <th>Grade</th>
-                <th>Category</th>
-            </tr>
+        <table class="pure-table">
+          <thead>
+                <tr>
+                    <th>Course Id</th>
+                    <th>Semester</th>
+                    <th>Year</th>
+                    <th>Grade</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
         <c:forEach var="course" items="${registrations}">
             <tr>
                 <td>${course.course_id}</td>
@@ -42,6 +45,7 @@
                 <td>${course.category}</td>
             </tr>
         </c:forEach>
+        </tbody>
         </table>
     </main>
 <%@ include file="includes/aside.jsp" %>

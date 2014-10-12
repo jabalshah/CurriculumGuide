@@ -9,7 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-    <table>
+    <table class="pure-table">
+        <thead>
         <tr>
             <th></th>
             <th>Course Id</th>
@@ -17,6 +18,7 @@
             <th>Year</th>
             <th>Grade</th>
         </tr>
+        </thead>
     <%
         String[] categories = {"Analytic","Capstone","CCI Elective","Communication","Core Computer Science","CS Focus Area","General Education","Outside Concentration","Programming", "Unknown"};
         String userName = (String)session.getAttribute("userName");
@@ -57,6 +59,7 @@
             }
         }
     %>
+    </table>
     </main>
 <%@ include file="includes/aside.jsp" %>
 <%@ include file="includes/footer.jsp" %>

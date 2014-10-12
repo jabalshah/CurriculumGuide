@@ -7,13 +7,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-        <table>
+        <table class="pure-table">
+            <thead>
             <tr>
-                <th></th>
-                <th></th>
+                <th>Period</th>
+                <th>Year</th>
                 <th>Course ID</th>
                 <th>Grade</th>
                 <th>Category</th>
+            </thead>
             </tr>
         <c:set var="current" value="-1" />
         <c:forEach var="course" items="${registrations}">
@@ -60,6 +62,7 @@
                 </c:otherwise>
             </c:choose>
         </c:forEach>
+        </table>
     </main>
 <%@ include file="includes/aside.jsp" %>
 <%@ include file="includes/footer.jsp" %>

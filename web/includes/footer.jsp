@@ -1,9 +1,9 @@
         <footer class="site-footer">
             <div class="wrap">
-                <div class="widget"><h2>Widget</h2></div>
-                <div class="widget"><h2>Widget</h2></div>
-                <div class="widget"><h2>Widget</h2></div>
-                <div class="widget"><h2>Widget</h2></div>
+                <div class="widget"><h2>U</h2></div>
+                <div class="widget"><h2>N</h2></div>
+                <div class="widget"><h2>C</h2></div>
+                <div class="widget"><h2>C</h2></div>
             </div>
         </footer>
 
