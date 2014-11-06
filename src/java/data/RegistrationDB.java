@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -160,6 +161,37 @@ public class RegistrationDB {
                 registrations.add(registration);
             }
             return registrations;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static HashMap selectSatisfiedByCategory(String userName, String category)
+    {
+        HashMap satisfactoryCourseDiscription = new HashMap();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+      
+        String query = "SELECT satisfies FROM curriculum_guide.registration where username=? and category=? and grade not in ('F','W')";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            ps.setString(2, category);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                satisfactoryCourseDiscription.put(rs.getString("satisfies"),null);
+            }
+            return satisfactoryCourseDiscription;
         }
         catch(SQLException e){
             e.printStackTrace();

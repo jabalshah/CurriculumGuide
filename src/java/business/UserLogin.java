@@ -20,6 +20,7 @@ public class UserLogin implements Serializable{
     private String answer;
     private int confirmation_code;
     private String confirmation_status;
+    private String role;
 
     public int getConfirmation_code() {
         return confirmation_code;
@@ -68,5 +69,13 @@ public class UserLogin implements Serializable{
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

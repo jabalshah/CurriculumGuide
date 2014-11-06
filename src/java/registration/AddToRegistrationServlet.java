@@ -60,6 +60,7 @@ public class AddToRegistrationServlet extends HttpServlet {
         userLogin.setSecurityQuestion(securityQuestion);
         userLogin.setAnswer(answer);
         userLogin.setConfirmation_code(random.nextInt(999999999));
+        userLogin.setRole("Student");
         
         String url;
         String message = "";
@@ -70,42 +71,42 @@ public class AddToRegistrationServlet extends HttpServlet {
         else{
             UserLoginDB.insert(userLogin);
             url = "/index.jsp";
-            String to = userLogin.getUserName() + "@uncc.edu";
-            String from = "curriculumguideforuncc@gmail.com";
-            String subject = "Thank you for registration @Curriculum Guide";
-            StringBuilder sb = new StringBuilder();
-            sb.append("<html>\n");
-            sb.append("<body>");
-            sb.append("<a href=\"localhost:8080\\verifyEmail?userName=");
-            sb.append(userLogin.getUserName());
-            sb.append("&confirmation_code=");
-            sb.append(userLogin.getConfirmation_code());
-            sb.append("\">Verify Email</a>");
-            sb.append("</body></html>");
-            String body = sb.toString();
-            boolean isBodyHTML = true;
-
-            //Sends mail to customer's email address from firstlastnameemailaddress@gmail.com 
-            try {
-                MailUtilGmail.sendMail(to, from, subject, body, isBodyHTML);
-            } catch (MessagingException e) {
-                String errorMessage
-                        = "ERROR: Unable to send email. "
-                        + "Check Tomcat logs for details.<br>"
-                        + "NOTE: You may need to configure your system "
-                        + "as described in chapter 15.<br>"
-                        + "ERROR MESSAGE: " + e.getMessage();
-                request.setAttribute("errorMessage", errorMessage);
-                this.log(
-                        "Unable to send email. \n"
-                        + "Here is the email you tried to send: \n"
-                        + "=====================================\n"
-                        + "TO: " + to + "\n"
-                        + "FROM: " + from + "\n"
-                        + "SUBJECT: " + subject + "\n"
-                        + "\n"
-                        + body + "\n\n");
-            }
+//            String to = userLogin.getUserName() + "@uncc.edu";
+//            String from = "curriculumguideforuncc@gmail.com";
+//            String subject = "Thank you for registration @Curriculum Guide";
+//            StringBuilder sb = new StringBuilder();
+//            sb.append("<html>\n");
+//            sb.append("<body>");
+//            sb.append("<a href=\"localhost:8080\\verifyEmail?userName=");
+//            sb.append(userLogin.getUserName());
+//            sb.append("&confirmation_code=");
+//            sb.append(userLogin.getConfirmation_code());
+//            sb.append("\">Verify Email</a>");
+//            sb.append("</body></html>");
+//            String body = sb.toString();
+//            boolean isBodyHTML = true;
+//
+//            //Sends mail to customer's email address from firstlastnameemailaddress@gmail.com 
+//            try {
+//                MailUtilGmail.sendMail(to, from, subject, body, isBodyHTML);
+//            } catch (MessagingException e) {
+//                String errorMessage
+//                        = "ERROR: Unable to send email. "
+//                        + "Check Tomcat logs for details.<br>"
+//                        + "NOTE: You may need to configure your system "
+//                        + "as described in chapter 15.<br>"
+//                        + "ERROR MESSAGE: " + e.getMessage();
+//                request.setAttribute("errorMessage", errorMessage);
+//                this.log(
+//                        "Unable to send email. \n"
+//                        + "Here is the email you tried to send: \n"
+//                        + "=====================================\n"
+//                        + "TO: " + to + "\n"
+//                        + "FROM: " + from + "\n"
+//                        + "SUBJECT: " + subject + "\n"
+//                        + "\n"
+//                        + body + "\n\n");
+//            }
         }
         HttpSession session = request.getSession();
         session.setAttribute("userLogin", userLogin);

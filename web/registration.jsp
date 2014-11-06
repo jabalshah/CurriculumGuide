@@ -28,6 +28,8 @@
                         
                             <label for="answer">Answer:</label>
                             <input type="text" name="answer" placeholder="Enter your answer" required value=${customerLogin.answer}>
+                            
+                            <input type="hidden" name="role" value="student">
                         
                             <input class="pure-button pure-button-primary" type="submit" value="Register">
                         

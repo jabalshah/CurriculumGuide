@@ -17,7 +17,7 @@
                 <th>Category</th>
             </thead>
             </tr>
-        <c:set var="current" value="-1" />
+        <c:set var="current" value="" />
         <c:forEach var="course" items="${registrations}">
             <c:choose>
                 <c:when test="${course.semester != current}">

@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
                 //If password validates proceed to home screen after logging in 
                 //successfully
                 if (PasswordManager.validatePassword(password, userLogin.getPassword())) {
-                    url = "/userProfile.jsp";
+                    
                     Cookie userNameCookie = new Cookie("userNameCookie", userLogin.getUserName());
                     userNameCookie.setMaxAge(60 * 60 * 24);
                     userNameCookie.setPath("/");
@@ -70,8 +70,13 @@ public class LoginServlet extends HttpServlet {
                     loginStatusCookie.setMaxAge(60 * 30);
                     loginStatusCookie.setPath("/");
                     response.addCookie(loginStatusCookie);
-                    
-                    user = UserDB.selectUser(userName);
+                    if(userLogin.getRole().equals("student")){
+                        user = UserDB.selectUser(userName);
+                        url = "/userProfile.jsp";
+                        session.setAttribute("user", user);
+                    }
+                    else
+                        url = "/advisorDashboard.jsp";
                     registrations = RegistrationDB.selectAll(userName);
                     session.setAttribute("userLogin", userLogin);
                     session.setAttribute("userName", userName);
@@ -86,7 +91,6 @@ public class LoginServlet extends HttpServlet {
             }
         }
         session.setAttribute("registrations", registrations);
-        session.setAttribute("user", user);
         session.setAttribute("userLogin", userLogin);
         request.setAttribute("message", message);
         session.setAttribute("login", "true");
