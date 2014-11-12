@@ -7,6 +7,7 @@
 package data;
 import business.UserLogin;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author Jabal
@@ -143,6 +144,36 @@ public class UserLoginDB {
         }
         finally
         {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static ArrayList<String> getAdvisors()
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT username FROM userlogininfo WHERE role=?";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, "advisor");
+            rs = ps.executeQuery();
+            ArrayList<String> advisorsUsername = new ArrayList<String>();
+            while (rs.next()){
+                advisorsUsername.add(rs.getString("username"));
+            }
+            return advisorsUsername;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }

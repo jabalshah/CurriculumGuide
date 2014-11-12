@@ -12,12 +12,18 @@ import java.io.Serializable;
  *
  * @author Jabal
  */
-public class RemainingCourse implements Serializable{
+public class Curriculum implements Serializable{
+    private int id;
     private String category;
-    private String require;
+    private String requires;
     private int priority;
 
-    public RemainingCourse() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategory() {
@@ -28,12 +34,12 @@ public class RemainingCourse implements Serializable{
         this.category = category;
     }
 
-    public String getRequire() {
-        return require;
+    public String getRequires() {
+        return requires;
     }
 
-    public void setRequire(String require) {
-        this.require = require;
+    public void setRequires(String requires) {
+        this.requires = requires;
     }
 
     public int getPriority() {

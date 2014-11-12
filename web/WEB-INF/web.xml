@@ -14,7 +14,31 @@
     </servlet>
     <servlet>
         <servlet-name>RemainingCourses</servlet-name>
-        <servlet-class>student.RemainingCourses</servlet-class>
+        <servlet-class>student.RemainingCoursesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayCurriculum</servlet-name>
+        <servlet-class>advisor.DisplayCurriculumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayCurriculumCourse</servlet-name>
+        <servlet-class>advisor.DisplayCurriculumCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCurriculumCourseServlet</servlet-name>
+        <servlet-class>advisor.UpdateCurriculumCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCurriculumCourseServlet</servlet-name>
+        <servlet-class>advisor.DeleteCurriculumCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertCurriculumCourseServlet</servlet-name>
+        <servlet-class>advisor.InsertCurriculumCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayAdvisorsServlet</servlet-name>
+        <servlet-class>advisor.DisplayAdvisorsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddToRegistration</servlet-name>
@@ -31,6 +55,30 @@
     <servlet-mapping>
         <servlet-name>RemainingCourses</servlet-name>
         <url-pattern>/remainingCourses</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayCurriculum</servlet-name>
+        <url-pattern>/displayCurriculum</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayCurriculumCourse</servlet-name>
+        <url-pattern>/displayCurriculumCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCurriculumCourseServlet</servlet-name>
+        <url-pattern>/updateCurriculumCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCurriculumCourseServlet</servlet-name>
+        <url-pattern>/deleteCurriculumCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertCurriculumCourseServlet</servlet-name>
+        <url-pattern>/insertCurriculumCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayAdvisorsServlet</servlet-name>
+        <url-pattern>/displayAdvisors</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -70,13 +70,31 @@ public class LoginServlet extends HttpServlet {
                     loginStatusCookie.setMaxAge(60 * 30);
                     loginStatusCookie.setPath("/");
                     response.addCookie(loginStatusCookie);
+                    
+                    Cookie userRole;
                     if(userLogin.getRole().equals("student")){
                         user = UserDB.selectUser(userName);
                         url = "/userProfile.jsp";
                         session.setAttribute("user", user);
+                        userRole = new Cookie("userRole", userLogin.getRole());
+                        userRole.setMaxAge(60 * 30);
+                        userRole.setPath("/");
+                        response.addCookie(userRole);
                     }
-                    else
+                    else if(userLogin.getRole().equals("advisor")){
                         url = "/advisorDashboard.jsp";
+                        userRole = new Cookie("userRole", userLogin.getRole());
+                        userRole.setMaxAge(60 * 30);
+                        userRole.setPath("/");
+                        response.addCookie(userRole);
+                    }
+                    else{
+                        url = "/adminDashboard.jsp";
+                        userRole = new Cookie("userRole", userLogin.getRole());
+                        userRole.setMaxAge(60 * 30);
+                        userRole.setPath("/");
+                        response.addCookie(userRole);
+                    }
                     registrations = RegistrationDB.selectAll(userName);
                     session.setAttribute("userLogin", userLogin);
                     session.setAttribute("userName", userName);

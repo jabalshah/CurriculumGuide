@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 
-package student;
+package advisor;
 
-import business.*;
-import data.*;
+import business.Curriculum;
+import data.CurriculumDB;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jabal
  */
-public class RemainingCourses extends HttpServlet {
+public class DisplayCurriculumCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,31 +34,18 @@ public class RemainingCourses extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Curriculum curriculumCourse = CurriculumDB.selectCurriculumCourseById(id);
+        
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        ArrayList<RemainingCourse> remainingCourses = new ArrayList<RemainingCourse>();
-        
-        ArrayList<String> categories = CurriculumDB.getCategories();
-        for(String category:categories){
-            HashMap completed = RegistrationDB.selectSatisfiedByCategory(user.getUserName(), category);
-            ArrayList<String> requires = CurriculumDB.getRequires(category);
-            for(String require:requires){
-                if(!completed.containsKey(require)){
-                    RemainingCourse temp = new RemainingCourse();
-                    temp.setCategory(category);
-                    temp.setRequire(require);
-                    remainingCourses.add(temp);
-                }
-            }
-        }
-        
-        session.setAttribute("remainingCourses", remainingCourses);
-        
-        RequestDispatcher dispatcher
-                = getServletContext().getRequestDispatcher("/remainingCourses.jsp");
+        session.setAttribute("curriculumCourse", curriculumCourse);
+
+        String url = "/displayCurriculumCourse.jsp";
+        RequestDispatcher dispatcher =
+              getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

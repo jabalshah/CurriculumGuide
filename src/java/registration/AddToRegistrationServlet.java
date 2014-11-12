@@ -47,6 +47,7 @@ public class AddToRegistrationServlet extends HttpServlet {
         String password = request.getParameter("password");
         String securityQuestion = request.getParameter("securityQuestion");
         String answer = request.getParameter("answer");
+        String role = request.getParameter("role");
         
         UserLogin userLogin = new UserLogin();
         userLogin.setUserName(userName);
@@ -60,7 +61,7 @@ public class AddToRegistrationServlet extends HttpServlet {
         userLogin.setSecurityQuestion(securityQuestion);
         userLogin.setAnswer(answer);
         userLogin.setConfirmation_code(random.nextInt(999999999));
-        userLogin.setRole("Student");
+        userLogin.setRole(role);
         
         String url;
         String message = "";

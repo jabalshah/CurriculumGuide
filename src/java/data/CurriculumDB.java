@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 /**
  *
  * @author Jabal
@@ -69,6 +68,160 @@ public class CurriculumDB {
         }
         finally{
             DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static ArrayList<Curriculum> selectAll(){
+        ArrayList<Curriculum> curriculumCourses = new ArrayList<Curriculum>();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "Select * from curriculum;";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Curriculum curriculumCourse = new Curriculum();
+                curriculumCourse.setId(rs.getInt("id"));
+                curriculumCourse.setCategory(rs.getString("category"));
+                curriculumCourse.setRequires(rs.getString("requires"));
+                curriculumCourse.setPriority(rs.getInt("priority"));
+                curriculumCourses.add(curriculumCourse);
+            }
+            return curriculumCourses;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static Curriculum selectCurriculumCourseById(int id){
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM curriculum " +
+                       "WHERE id=?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            Curriculum curriculumCourse = null;
+            if (rs.next())
+            {
+                curriculumCourse = new Curriculum();
+                curriculumCourse.setId(rs.getInt("id"));
+                curriculumCourse.setCategory(rs.getString("category"));
+                curriculumCourse.setRequires(rs.getString("requires"));
+                curriculumCourse.setPriority(rs.getInt("priority"));
+            }
+            return curriculumCourse;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static int update(Curriculum curriculumCourse){
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String query = "UPDATE curriculum SET " +
+                "category = ?, " +
+                "requires = ?, " +
+                "priority = ? " +
+                "WHERE id = ?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, curriculumCourse.getCategory());
+            ps.setString(2, curriculumCourse.getRequires());
+            ps.setInt(3, curriculumCourse.getPriority());
+            ps.setInt(4,curriculumCourse.getId());
+
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static int delete(Curriculum curriculumCourse)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = "DELETE FROM curriculum WHERE id=?";
+        try
+        {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, curriculumCourse.getId());
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static int insert(Curriculum curriculumCourse)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = 
+                "INSERT INTO curriculum (category, requires, priority) " +
+                "VALUES (?, ?, ?)";
+        try
+        {        
+            ps = connection.prepareStatement(query);
+            ps.setString(1, curriculumCourse.getCategory());
+            ps.setString(2, curriculumCourse.getRequires());
+            ps.setInt(3, curriculumCourse.getPriority());
+            return ps.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
+        finally
+        {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }

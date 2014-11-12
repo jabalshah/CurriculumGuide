@@ -22,6 +22,9 @@ public class UserLogin implements Serializable{
     private String confirmation_status;
     private String role;
 
+    public UserLogin() {
+    }
+
     public int getConfirmation_code() {
         return confirmation_code;
     }

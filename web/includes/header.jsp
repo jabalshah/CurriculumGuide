@@ -26,9 +26,9 @@
 
             </div>
         </header>
-                <div class="site-inner">
+        <div class="site-inner">
             <div class="wrap">
-            <nav>
+                <nav>
                     <ul>
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="registration.jsp">Registration</a></li>

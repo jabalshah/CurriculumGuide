@@ -24,6 +24,9 @@ public class User implements Serializable{
     private String advisor;
     private Date graduationdate;
 
+    public User() {
+    }
+
     public String getUserName() {
         return userName;
     }
