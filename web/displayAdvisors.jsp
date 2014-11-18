@@ -14,7 +14,7 @@
         </tr>
         <c:forEach var="advisorUsername" items="${advisorUsernames}">
             <tr>
-                <td>${advisorUsername}</td>
+                <td><a href="displayAdvisees?advisor=${advisorUsername}">${advisorUsername}</a></td>
             </tr>
         </c:forEach>
         <form action="advisorRegistration.jsp" method="get">

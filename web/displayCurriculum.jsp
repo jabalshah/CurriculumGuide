@@ -4,7 +4,7 @@
     Author     : Jabal
 --%>
 <script type="text/javascript">
-    function check(){
+    function check() {
         return confirm("Are you sure?");
     }
 </script>

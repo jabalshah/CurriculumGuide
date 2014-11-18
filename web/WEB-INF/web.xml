@@ -40,6 +40,14 @@
         <servlet-name>DisplayAdvisorsServlet</servlet-name>
         <servlet-class>advisor.DisplayAdvisorsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayAdviseesServlet</servlet-name>
+        <servlet-class>advisor.DisplayAdviseesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertAdviseeServlet</servlet-name>
+        <servlet-class>advisor.InsertAdviseeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddToRegistration</servlet-name>
         <url-pattern>/addToRegistration</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>DisplayAdvisorsServlet</servlet-name>
         <url-pattern>/displayAdvisors</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayAdviseesServlet</servlet-name>
+        <url-pattern>/displayAdvisees</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertAdviseeServlet</servlet-name>
+        <url-pattern>/insertAdvisee</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

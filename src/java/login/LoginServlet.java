@@ -71,31 +71,25 @@ public class LoginServlet extends HttpServlet {
                     loginStatusCookie.setPath("/");
                     response.addCookie(loginStatusCookie);
                     
-                    Cookie userRole;
+                    Cookie userRoleCookie = new Cookie("userRoleCookie", userLogin.getRole());
+                    userRoleCookie.setMaxAge(60 * 30);
+                    userRoleCookie.setPath("/");
+                    response.addCookie(userRoleCookie);
+                    
                     if(userLogin.getRole().equals("student")){
                         user = UserDB.selectUser(userName);
                         url = "/userProfile.jsp";
                         session.setAttribute("user", user);
-                        userRole = new Cookie("userRole", userLogin.getRole());
-                        userRole.setMaxAge(60 * 30);
-                        userRole.setPath("/");
-                        response.addCookie(userRole);
+                        registrations = RegistrationDB.selectAll(userName);
+                        session.setAttribute("registrations", registrations);
                     }
                     else if(userLogin.getRole().equals("advisor")){
                         url = "/advisorDashboard.jsp";
-                        userRole = new Cookie("userRole", userLogin.getRole());
-                        userRole.setMaxAge(60 * 30);
-                        userRole.setPath("/");
-                        response.addCookie(userRole);
                     }
                     else{
                         url = "/adminDashboard.jsp";
-                        userRole = new Cookie("userRole", userLogin.getRole());
-                        userRole.setMaxAge(60 * 30);
-                        userRole.setPath("/");
-                        response.addCookie(userRole);
                     }
-                    registrations = RegistrationDB.selectAll(userName);
+                    
                     session.setAttribute("userLogin", userLogin);
                     session.setAttribute("userName", userName);
                 } else {
@@ -108,7 +102,7 @@ public class LoginServlet extends HttpServlet {
                 Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        session.setAttribute("registrations", registrations);
+        
         session.setAttribute("userLogin", userLogin);
         request.setAttribute("message", message);
         session.setAttribute("login", "true");
