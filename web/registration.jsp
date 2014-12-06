@@ -2,20 +2,17 @@
         <main class="content">
             <h2>Registration Form</h2>
             <div id="registrationForm">
-                <form class="pure-form pure-form-stacked" id="form1" action="addToRegistration" method="post">
+                <form id="form1" action="addToRegistration" method="post">
                     <p class="message">${message}</p>
                     <fieldset>
                             <label for="userName">User Name:</label>
-                            <input type="text" name="userName" placeholder="jdoe" required value=${user.userName}>@uncc.edu
+                            <input type="text" name="userName" placeholder="jdoe@uncc.edu" required value=${user.userName}>
                         
                             <label for="password">Password:</label>
-                            <input type="password" name="password" placeholder="Enter at least 8 character" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="form.repassword.pattern = this.value;">
-                            <span class="form_hint">Enter at least 1 number, 1 lowercase, 1 Uppercase 8 character long</span>
-                        
+                            <input type="password" name="password" placeholder="8 character long. 1 number, 1 lowercase, 1 Uppercase" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange="form.repassword.pattern = this.value;">
                         
                             <label for="repassword">Confirm Password:</label>
-                            <input type="password" name="repassword" placeholder="Re Enter your password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                            <span class="form_hint">Re-enter your password</span> 
+                            <input type="password" name="repassword" placeholder="Re-enter your password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
                         
                         
                             <label for="securityQuestion">Security Question:</label>
@@ -31,7 +28,7 @@
                             
                             <input type="hidden" name="role" value="student">
                         
-                            <input class="pure-button pure-button-primary" type="submit" value="Register">
+                            <input class="button" type="submit" value="Register">
                         
                     </fieldset>
                 </form>

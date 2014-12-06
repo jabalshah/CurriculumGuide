@@ -1,40 +1,26 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="stylesheets/style.css">
-        <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'><!-- Google Web Font -->
-        <link href='http://fonts.googleapis.com/css?family=Allerta' rel='stylesheet' type='text/css'><!-- Google Web Font -->
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"> <!-- Form Styles -->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <header class="site-header">
-            <div class="wrap">
-                <div class="logo"><a href="index.jsp">CS Curriculum Guide</a></div>
-
-            </div>
-        </header>
-        <div class="site-inner">
-            <div class="wrap">
-                <nav>
-                    <ul>
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="registration.jsp">Registration</a></li>
-                        <li><a href="userProfile.jsp">User Profile</a></li>
-                        <li><a href="courseoverview.jsp">Course Overview</a></li>
-                        <li><a href="#">Placeholder</a></li>
-                        <li><a href="login.jsp">Login/Logoff</a></li>
-                    </ul>
-                </nav>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Curriculum Guide</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="button-group">
+                        <li><a class="button" href="index.jsp">Home</a></li>
+                        <li><a class="button" href="registration.jsp">Registration</a></li>
+                        <li><a class="button" href="userProfile.jsp">User Profile</a></li>
+                        <li><a class="button" href="courseoverview.jsp">Course Overview</a></li>
+                        <li><a class="button" href="login.jsp">Login/Logoff</a></li>
+            </ul>
+        <p><img src="Images/martin-hall.jpg"/></p>
+        </div>
+    </div>
+    <div class="row">
+    <div class="large-8 columns">
+        
+        

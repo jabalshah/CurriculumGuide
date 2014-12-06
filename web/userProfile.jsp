@@ -1,24 +1,57 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
                 <main class="content">
-                    <p>${user.firstname} ${user.lastname}</p>
-                    <p>Date of Birth: ${user.dob}</p>
-                    <p>Level: ${user.level}</p>
-                    <p>Major: ${user.major}</p>
-                    <p>Focus Area: ${user.concentration}</p>
-                    <p>Advisor: ${user.advisor}</p>
-                    <p>Graduation Date: ${user.graduationdate}</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>${user.firstname} ${user.lastname}</td>
+    </tr>
+    <tr>
+      <td>Date of Birth</td>
+      <td>${user.dob}</td>
+    </tr>
+     <tr>
+      <td>Level</td>
+      <td>${user.level}</td>
+    </tr>
+    <tr>
+      <td>Major</td>
+      <td>${user.major}</td>
+    </tr>
+    <tr>
+      <td>Focus Area</td>
+      <td>${user.concentration}</td>
+    </tr>
+    <tr>
+      <td>Advisor</td>
+      <td>${user.advisor}</td>
+    </tr>
+    <tr>
+      <td>Graduation Date</td>
+      <td>${user.graduationdate}</td>
+    </tr>    
+  </tbody>
+</table>
                     
-                    <p>Current Classes</p>
-                    <ul>
-                        <c:forEach var="course" items="${registrations}">
+
+                    
+<table>
+  <tbody>
+  <th>
+     Current Classes 
+  </th>
+                          <c:forEach var="course" items="${registrations}">
                             <c:if test="${course.grade == NULL}">
-                                <li>${course.course_id}</li>
-                            </c:if>
+    <tr>
+      <td>${course.course_id}</td>
+    </tr>   
+                                </c:if>
                         </c:forEach>
-                    </ul>
+  </tbody>
+</table>
                     
-                    <img alt ="cat pickture" src="http://placekitten.com/200/400">
+                    
                     
                     
                 </main>

@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-        <table class="pure-table">
+        <table>
           <thead>
                 <tr>
                     <th>Course Id</th>

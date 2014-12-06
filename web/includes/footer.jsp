@@ -1,31 +1,24 @@
-        <footer class="site-footer">
-            <div class="wrap">
-                <div class="widget"><h2>U</h2></div>
-                <div class="widget"><h2>N</h2></div>
-                <div class="widget"><h2>C</h2></div>
-                <div class="widget"><h2>C</h2></div>
-            </div>
+        <footer class="row">
+            <div class="large-12 columns">
+                <hr/>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p>© Copyright UNCC CS DEPARTMENT SON</p>
+                    </div>
+                <div class="large-6 columns">
+                    <ul class="inline-list right">
+                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="registration.jsp">Registration</a></li>
+                        <li><a href="userProfile.jsp">User Profile</a></li>
+                        <li><a href="courseoverview.jsp">Course Overview</a></li>
+                        <li><a href="login.jsp">Login/Logoff</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div> 
         </footer>
-
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/foundation/js/foundation.min.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
