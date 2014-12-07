@@ -6,24 +6,22 @@
 
 package courseInfo;
 
-import business.CourseInfo;
-import business.User;
+import business.CourseRating;
 import data.CourseInfoDB;
-import data.RegistrationDB;
+import data.CourseRatingDB;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Jabal
  */
-public class DisplayCourseInfoServlet extends HttpServlet {
+public class InsertRatingForCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,27 +34,31 @@ public class DisplayCourseInfoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String courseID = request.getParameter("courseID");
-        String url;
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        CourseInfo courseInfo = CourseInfoDB.selectCurriculumCourseById(courseID);
-        if(courseInfo == null){
-            url = "/noCourseInfo.jsp";
-        }
-        else{
-            session.setAttribute("courseInfo", courseInfo);
-            if(RegistrationDB.isCourseTaken(user.getUserName(), courseID)){
-               url = "/courseInfoWithRating.jsp";
-            }
-            else{
-                url = "/courseInfo.jsp";
-            }
-        }
+        double usefultotal=0, usefulavg=0, difficultytotal=0, difficultyavg=0;
+        CourseRating courseRating = new CourseRating();
+        courseRating.setCourseID(request.getParameter("courseID"));
+        courseRating.setUserName(request.getParameter("username"));
+        courseRating.setUsefulness(Double.parseDouble(request.getParameter("usefulness")));
+        courseRating.setDifficulty(Double.parseDouble(request.getParameter("difficulty")));
+        
+        CourseRatingDB.insert(courseRating);
+        ArrayList<Double> usefulnessRatings = CourseRatingDB.getUsefulnessRatings(courseRating.getCourseID());
+        ArrayList<Double> difficultyRatings = CourseRatingDB.getDifficultyRatings(courseRating.getCourseID());
+        
+        for(Double temp: usefulnessRatings)
+            usefultotal += temp;
+        usefulavg = usefultotal / usefulnessRatings.size();
+        for(Double temp: difficultyRatings)
+            difficultytotal += temp;
+        difficultyavg = difficultytotal / difficultyRatings.size();
+        
+        CourseInfoDB.updateRatings(courseRating.getCourseID(), usefulavg, difficultyavg);
+        String url = "/userProfile.jsp";
         RequestDispatcher dispatcher
                 = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -95,5 +97,5 @@ public class DisplayCourseInfoServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
 
+}

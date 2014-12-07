@@ -18,8 +18,7 @@ public class UserLoginDB {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
-
-        //Preparing query that will insert record into customer table
+        
         String query = 
                 "INSERT INTO userlogininfo (Username, Userpassword, Questioncode, Answer, confirmation_code, role) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
@@ -78,7 +77,7 @@ public class UserLoginDB {
     
     //This method returns the record if username is stored in table otherwise
     //returns empty record
-    //record is stored is Customer object for easy use
+    //record is stored is UserLogin object for easy use
     public static UserLogin selectUser(String userName)
     {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -96,7 +95,6 @@ public class UserLoginDB {
             rs = ps.executeQuery();
             UserLogin userLogin = new UserLogin();
             
-            //If record exist, setting up values in Customer object
             if (rs.next())
             {
                 userLogin.setUserName(rs.getString("username"));
@@ -105,7 +103,6 @@ public class UserLoginDB {
                 userLogin.setAnswer(rs.getString("answer"));
                 userLogin.setRole(rs.getString("role"));
             }
-            //Finally return the Customer object
             return userLogin;
         }
         catch (SQLException e){
@@ -126,7 +123,6 @@ public class UserLoginDB {
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
 
-        //Preparing query that will insert record into customer table
         String query = 
                 "UPDATE userlogininfo SET confirmation_status = ?" +
                 "WHERE username = ?";

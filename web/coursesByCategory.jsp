@@ -32,7 +32,7 @@
                 <%for(Registration course: courses){
                     %><tr>
                         <td></td>
-                        <td><%=course.getCourse_id()%></td>
+                        <td><a href="displayCourseInfo?courseID=<%=course.getCourse_id()%>"</a><%=course.getCourse_id()%></td>
                         <% int season = course.getSemester() % 100;
                         switch(season){
                             case 0:

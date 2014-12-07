@@ -21,7 +21,7 @@
             <tbody>
         <c:forEach var="course" items="${registrations}">
             <tr>
-                <td>${course.course_id}</td>
+                <td><a href="displayCourseInfo?courseID=${course.course_id}">${course.course_id}</a></td>
             <c:choose>
                 <c:when test="${course.semester%100 == 10}">
                 <td>Spring</td>
