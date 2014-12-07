@@ -39,7 +39,7 @@
     </table>
     <p>We see you've taken this course, would you mind rating this</p>
     <table class="pure-table">
-        <form action="insertRatingForCourse" method="get">
+        <form action="insertRatingForCourse" method="post">
             <input type="hidden" name="courseID" value="${courseInfo.courseID}">
             <input type="hidden" name="username" value="${user.userName}">
             <tr>
