@@ -45,6 +45,38 @@ public class CurriculumDB {
         }
     }
     
+    public static ArrayList<RemainingCourse> getAllRequires(){
+        ArrayList<RemainingCourse> requiredCourses = new ArrayList<RemainingCourse>();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM curriculum_guide.curriculum order by priority, category, requires;";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                RemainingCourse remainingCourse = new RemainingCourse();
+                remainingCourse.setCategory(rs.getString("category"));
+                remainingCourse.setRequire(rs.getString("requires"));
+                remainingCourse.setPriority(rs.getInt("priority"));
+                requiredCourses.add(remainingCourse);
+            }
+            return requiredCourses;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
     public static ArrayList<String> getCategories(){
         ArrayList<String> categories = new ArrayList<String>();
         ConnectionPool pool = ConnectionPool.getInstance();

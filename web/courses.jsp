@@ -22,7 +22,7 @@
             <tbody>
         <c:forEach var="course" items="${registrations}">
             <tr>
-                <td><span data-tooltip aria-haspopup="true" class="has-tip tip-left" title="${course.grade}">${course.course_id}</span></td>
+                <td><a href="displayCourseInfo?courseID=${course.course_id}">${course.course_id}</a></td>
             <c:choose>
                 <c:when test="${course.semester%100 == 10}">
                 <td>Spring</td>

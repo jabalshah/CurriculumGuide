@@ -203,4 +203,64 @@ public class RegistrationDB {
             pool.freeConnection(connection);
         }
     }
+    
+    public static HashMap selectAllSatisfied(String userName)
+    {
+        HashMap allSatisfiedCoursesTaken = new HashMap();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+      
+        String query = "SELECT satisfies FROM curriculum_guide.registration where username=? and (grade not in ('F','W') or grade is null)";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                allSatisfiedCoursesTaken.put(rs.getString("satisfies"),null);
+            }
+            return allSatisfiedCoursesTaken;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    public static boolean isCourseTaken(String userName, String course_id)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "SELECT * FROM registration Where username = ? AND course_id = ? ORDER BY semester";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            ps.setString(2, course_id);
+            rs = ps.executeQuery();
+            if (rs.next())
+                return true;
+            else
+                return false;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
 }

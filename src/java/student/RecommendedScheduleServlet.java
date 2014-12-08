@@ -6,8 +6,10 @@
 
 package student;
 
-import business.*;
-import data.*;
+import business.RemainingCourse;
+import business.User;
+import data.CurriculumDB;
+import data.RegistrationDB;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +24,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jabal
  */
-public class RemainingCoursesServlet extends HttpServlet {
+public class RecommendedScheduleServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,25 +39,23 @@ public class RemainingCoursesServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        ArrayList<RemainingCourse> remainingCourses = new ArrayList<RemainingCourse>();
-        ArrayList<String> categories = CurriculumDB.getCategories();
-        for(String category:categories){
-            HashMap completed = RegistrationDB.selectSatisfiedByCategory(user.getUserName(), category);
-            ArrayList<String> requires = CurriculumDB.getRequires(category);
-            for(String require:requires)
-                if(!completed.containsKey(require)){
-                    RemainingCourse temp = new RemainingCourse();
-                    temp.setCategory(category);
-                    temp.setRequire(require);
-                    remainingCourses.add(temp);
-                }
-        }
-        session.setAttribute("remainingCourses", remainingCourses);
+        ArrayList<RemainingCourse> recommendedCourses = new ArrayList<RemainingCourse>();
+        HashMap registered = RegistrationDB.selectAllSatisfied(user.getUserName());
+        ArrayList<RemainingCourse> requires = CurriculumDB.getAllRequires();
+        for(RemainingCourse remainingCourse: requires)
+            if(!registered.containsKey(remainingCourse.getRequire())){
+                RemainingCourse temp = new RemainingCourse();
+                temp.setCategory(remainingCourse.getCategory());
+                temp.setRequire(remainingCourse.getRequire());
+                temp.setPriority(remainingCourse.getPriority());
+                recommendedCourses.add(temp);
+            }
+        session.setAttribute("recommendedCourses", recommendedCourses);
         RequestDispatcher dispatcher
-                = getServletContext().getRequestDispatcher("/remainingCourses.jsp");
+                = getServletContext().getRequestDispatcher("/recommendedCourses.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

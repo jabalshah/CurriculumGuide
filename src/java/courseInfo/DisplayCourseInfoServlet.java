@@ -6,9 +6,13 @@
 
 package courseInfo;
 
+import business.CourseInfo;
 import business.User;
+import data.CourseInfoDB;
+import data.RegistrationDB;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,12 +37,26 @@ public class DisplayCourseInfoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String courseID = request.getParameter("courseID");
+        String url;
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        
-        
+        CourseInfo courseInfo = CourseInfoDB.selectCurriculumCourseById(courseID);
+        if(courseInfo == null){
+            url = "/noCourseInfo.jsp";
+        }
+        else{
+            session.setAttribute("courseInfo", courseInfo);
+            if(RegistrationDB.isCourseTaken(user.getUserName(), courseID)){
+               url = "/courseInfoWithRating.jsp";
+            }
+            else{
+                url = "/courseInfo.jsp";
+            }
+        }
+        RequestDispatcher dispatcher
+                = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -77,5 +95,5 @@ public class DisplayCourseInfoServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
+

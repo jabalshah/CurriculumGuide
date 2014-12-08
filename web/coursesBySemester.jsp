@@ -46,7 +46,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>${course.course_id}</td>
+                        <td><a href="displayCourseInfo?courseID=${course.course_id}">${course.course_id}</a></td>
                         <td>${course.grade}</td>
                         <td>${course.category}</td>
                     </tr>
@@ -56,7 +56,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>${course.course_id}</td>
+                        <td><a href="displayCourseInfo?courseID=${course.course_id}">${course.course_id}</a></td>
                         <td>${course.grade}</td>
                         <td>${course.category}</td>
                     </tr>
