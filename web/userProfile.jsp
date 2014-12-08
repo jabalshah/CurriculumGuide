@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
                 <main class="content">
+                    <h2>My Profile</h2>
 <table>
   <tbody>
     <tr>

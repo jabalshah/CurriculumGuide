@@ -10,16 +10,29 @@
   <body>
     <div class="row">
         <div class="large-12 columns">
-            <ul class="button-group">
-                        <li><a class="button" href="index.jsp">Home</a></li>
-                        <li><a class="button" href="registration.jsp">Registration</a></li>
-                        <li><a class="button" href="userProfile.jsp">User Profile</a></li>
-                        <li><a class="button" href="courseoverview.jsp">Course Overview</a></li>
-                        <li><a class="button" href="login.jsp">Login/Logoff</a></li>
-            </ul>
+            <div class="icon-bar four-up">
+              <a href="index.jsp" class="item">
+                <img src="Images/icons/fi-home.svg" >
+                <label>Home</label>
+              </a>
+              <a href="registration.jsp" class="item">
+                <img src="Images/icons/fi-address-book.svg" >
+                <label>Registration</label>
+              </a>
+              <a href="listCourses" class="item">
+                <img src="Images/icons/fi-results.svg" >
+                <label>Curriculum</label>
+              </a>
+                <a href="login.jsp" class="item">
+                <img src="Images/icons/fi-lock.svg" >
+                <label>Login</label>
+              </a>
+            </div>
+            
         <p><img src="Images/martin-hall.jpg"/></p>
         </div>
     </div>
+      
     <div class="row">
     <div class="large-8 columns">
         

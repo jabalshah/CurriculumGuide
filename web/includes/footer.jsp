@@ -3,13 +3,12 @@
                 <hr/>
                 <div class="row">
                     <div class="large-6 columns">
-                        <p>© Copyright UNCC CS DEPARTMENT SON</p>
+                        <p>© UNCC</p>
                     </div>
                 <div class="large-6 columns">
                     <ul class="inline-list right">
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="registration.jsp">Registration</a></li>
-                        <li><a href="userProfile.jsp">User Profile</a></li>
                         <li><a href="courseoverview.jsp">Course Overview</a></li>
                         <li><a href="login.jsp">Login/Logoff</a></li>
                     </ul>

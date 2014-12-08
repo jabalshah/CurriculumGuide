@@ -48,6 +48,14 @@
         <servlet-name>InsertAdviseeServlet</servlet-name>
         <servlet-class>advisor.InsertAdviseeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cs_overview</servlet-name>
+        <servlet-class>data.CourseInfoDB</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listCourses</servlet-name>
+        <servlet-class>courseInfo.listCourses</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddToRegistration</servlet-name>
         <url-pattern>/addToRegistration</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>InsertAdviseeServlet</servlet-name>
         <url-pattern>/insertAdvisee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cs_overview</servlet-name>
+        <url-pattern>/cs_overview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listCourses</servlet-name>
+        <url-pattern>/listCourses</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

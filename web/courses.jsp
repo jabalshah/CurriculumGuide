@@ -8,7 +8,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-        <table>
+         <h2>Completed Courses</h2>
+        <table width="100%">
           <thead>
                 <tr>
                     <th>Course Id</th>
@@ -21,7 +22,7 @@
             <tbody>
         <c:forEach var="course" items="${registrations}">
             <tr>
-                <td>${course.course_id}</td>
+                <td><span data-tooltip aria-haspopup="true" class="has-tip tip-left" title="${course.grade}">${course.course_id}</span></td>
             <c:choose>
                 <c:when test="${course.semester%100 == 10}">
                 <td>Spring</td>

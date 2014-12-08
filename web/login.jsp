@@ -6,11 +6,10 @@
                         <p class="message">${message}</p>
 
                                     <label for="userName">User Name:</label>
-                                    <input type="text" name="userName" placeholder="jdoe" required value=${user.userName}>   @uncc.edu
+                                    <input type="text" name="userName" placeholder="jdoe@uncc.edu" required value=${user.userName}>
                                     <label for="password">Password:</label>
-                                    <input type="password" name="password" placeholder="Enter the Password" required>
-                                    <span class="form_hint">Enter at least 1 number, 1 lowercase, 1 Uppercase 8 character long</span>
-                                    <input type="submit" value="Login">
+                                    <input type="password" placeholder="Enter at least 1 number, 1 lowercase, 1 Uppercase 8 character long" name="password" placeholder="Enter the Password" required>
+                                    <input class="button" type="submit" value="Login">
                                 </div>
                         </div>
                     </form>

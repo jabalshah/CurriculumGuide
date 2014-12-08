@@ -1,12 +1,18 @@
 </div>
+<!--<c:if test="${not empty user}">
+    <p>You're still logged in.</p>
+</c:if>
+<c:if test="${empty user}">
+    <p>You're not logged in!</p>
+</c:if>-->
  <div class="large-4 columns">
     <ul class="small-block-grid-2">
         <li><a href="userProfile.jsp">My Profile</a></li>
         <li><a href="courses.jsp">My Courses</a></li>
         <li><a href="coursesByCategory.jsp">My Courses by Category</a></li>
         <li><a href="coursesBySemester.jsp">My Courses by Semester</a></li>
-        <li><a href="remainingCourses">*Remaining Courses*</a></li>
-        <li><a href="#">*Recommended Schedule*</a></li>
+        <li><a href="remainingCourses">Remaining Courses</a></li>
+        <li><a href="#">Recommended Schedule</a></li>
     </ul>
  </div>
  </div>

@@ -9,7 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="includes/header.jsp" %>
     <main class="content">
-    <table>
+        <h2>Courses Completed by Category</h2>
+    <table width="100%">
         <thead>
         <tr>
             <th></th>
