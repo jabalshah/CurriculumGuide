@@ -56,6 +56,10 @@
         <servlet-name>DisplayCourseInfoServlet</servlet-name>
         <servlet-class>courseInfo.DisplayCourseInfoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecommendedScheduleServlet</servlet-name>
+        <servlet-class>student.RecommendedScheduleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddToRegistration</servlet-name>
         <url-pattern>/addToRegistration</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>DisplayCourseInfoServlet</servlet-name>
         <url-pattern>/displayCourseInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecommendedScheduleServlet</servlet-name>
+        <url-pattern>/recommendedSchedule</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

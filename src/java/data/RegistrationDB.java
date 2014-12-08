@@ -204,6 +204,36 @@ public class RegistrationDB {
         }
     }
     
+    public static HashMap selectAllSatisfied(String userName)
+    {
+        HashMap allSatisfiedCoursesTaken = new HashMap();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+      
+        String query = "SELECT satisfies FROM curriculum_guide.registration where username=? and (grade not in ('F','W') or grade is null)";
+        
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setString(1, userName);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                allSatisfiedCoursesTaken.put(rs.getString("satisfies"),null);
+            }
+            return allSatisfiedCoursesTaken;
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
     public static boolean isCourseTaken(String userName, String course_id)
     {
         ConnectionPool pool = ConnectionPool.getInstance();

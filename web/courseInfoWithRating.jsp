@@ -40,8 +40,8 @@
     <p>We see you've taken this course, would you mind rating this</p>
     <table class="pure-table">
         <form action="insertRatingForCourse" method="post">
-            <input type="hidden" name="courseID" value="${courseInfo.courseID}">
-            <input type="hidden" name="username" value="${user.userName}">
+            <input type="hidden" name="courseID" value="${courseInfo.courseID} required">
+            <input type="hidden" name="username" value="${user.userName} required">
             <tr>
                 <td>Usefulness:</td>
                 <td><input type="number" name="usefulness" min="0" max="5" step="0.5"></td>
